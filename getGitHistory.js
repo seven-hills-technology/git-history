@@ -2,7 +2,7 @@ const { execSync } = require("child_process");
 
 function getGitHistory(pathToGitRepo) {
     try {
-        const stdout = execSync(`git --no-pager log --format="%h [%aD|%ae] %s"`, {cwd: pathToGitRepo});
+        const stdout = execSync(`git --no-pager log --all --format="%h [%aD|%ae] %s"`, {cwd: pathToGitRepo});
         const stdoutString = stdout.toString().trim();
         return stdoutString.split("\n");
     } catch (e) {
